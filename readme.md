@@ -9,6 +9,8 @@ Measures the throughput (send, consume) and latency (time from send to receive) 
 
 ## Usage
 
+`dotnet run -c Release -t --inmemory -- --count=100000 --prefetch=10 --clients=10`
+
 To see the usage, enter:
 
 `dotnet run -f netcoreapp3.1 -c Release -- -?`
