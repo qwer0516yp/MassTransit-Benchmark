@@ -9,13 +9,88 @@ Measures the throughput (send, consume) and latency (time from send to receive) 
 
 ## Usage
 
-`dotnet run -c Release -t --inmemory -- --count=100000 --prefetch=10 --clients=10`
 
 To see the usage, enter:
 
 `dotnet run -f netcoreapp3.1 -c Release -- -?`
 
 That will show all the details of using the benchmark.
+
+## InMemory
+
+`dotnet run -c Release -t --inmemory -- --count=100000 --prefetch=10 --clients=10`
+
+### Output
+
+```
+Transport: InMemory
+Operating System: Microsoft Windows NT 10.0.22631.0
+Processor Count: 24
+MassTransit Version: 7.2.0.0
+Transport Concurrency Limit: 24
+Running Message Latency Benchmark
+Message Count: 100000
+Clients: 10
+Durable: False
+Payload Length: 0
+Prefetch Count: 10
+Concurrency Limit: 0
+Total send duration: 0:00:03.531887
+Send message rate: 28313.48 (msg/s)
+Total consume duration: 0:00:03.63517
+Consume message rate: 27509.03 (msg/s)
+Concurrent Consumer Count: 13
+Avg Ack Time: 0ms
+Min Ack Time: 0ms
+Max Ack Time: 0ms
+Med Ack Time: 0ms
+95t Ack Time: 0ms
+Avg Consume Time: 870ms
+Min Consume Time: 57ms
+Max Consume Time: 2125ms
+Med Consume Time: 704ms
+95t Consume Time: 2050ms
+
+   57ms ************************************************************ (  31621)
+  264ms ****************                                             (   8899)
+  471ms ***************                                              (   8220)
+  677ms **************                                               (   7545)
+  884ms **************************                                   (  13742)
+ 1505ms *****************                                            (   9185)
+ 1711ms *****************                                            (   9019)
+ 1918ms **********************                                       (  11768)
+Transport Concurrency Limit: 24
+Running Request Response Benchmark
+Message Count: 100000
+Clients: 10
+Durable: False
+Prefetch Count: 10
+Concurrency Limit: 0
+Total consume duration: 0:00:10.9943656
+Consume message rate: 9095.57 (msg/s)
+Total request duration: 0:00:10.9943903
+Request rate: 9095.55 (msg/s)
+Concurrent Consumer Count: 13
+Avg Request Time: 1ms
+Min Request Time: 0ms
+Max Request Time: 1365ms
+Med Request Time: 0ms
+95t Request Time: 1ms
+Avg Consume Time: 1ms
+Min Consume Time: -5ms
+Max Consume Time: 1354ms
+Med Consume Time: 0ms
+95t Consume Time: 0ms
+
+Request duration distribution
+    0ms ************************************************************ (  99887)
+  273ms                                                              (     17)
+  409ms                                                              (     26)
+  546ms                                                              (      8)
+  682ms                                                              (     35)
+  819ms                                                              (     18)
+ 1229ms                                                              (      8)
+```
 
 ## RabbitMQ
 
